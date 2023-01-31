@@ -21,6 +21,9 @@ const AllBlogs = () => {
         mostrarNoticias();
     }, [])
 
+
+    console.log(new Date().toLocaleDateString());
+
     return (
         <div className="container">
             <h2>Todas las Noticias</h2>
@@ -32,6 +35,7 @@ const AllBlogs = () => {
                                 <h4>{noticia.title}</h4>
                                 <p>{noticia.body}</p>
                                 <p>{noticia.createdAt}</p>
+                                <hr/>
                             </div>
                         </div>
                     )

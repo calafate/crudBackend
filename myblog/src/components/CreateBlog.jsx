@@ -6,7 +6,8 @@ const baseURL ='http://localhost:8080'
 const CreateBlog = () => {
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
-    const [bdate, setBdate] = useState(Date());
+    const [bdate, setBdate] = useState(new Date());
+    
 
     const crearNoticia = () => {
         const noticia = {
@@ -36,11 +37,11 @@ const CreateBlog = () => {
                     </div>
                     <div className="mb-3">
                         <label htmlFor="body" className="form-label">Texto de la Noticia</label>
-                        <textarea className="form-control" rows="5" value={body} onChange={(e)=>{setBody(e.target.value)}}/>
+                        <textarea className="form-control" rows="5" value={body} onChange={(e)=>{setBody(e.target.value)}} />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="date" className="form-label">Fecha de la Noticia</label>
-                        <input type="date" className="form-control" value={bdate} onChange={(e)=>{setBdate(e.target.value)}}/>
+                        <input type="date" className="form-control" value={bdate} onChange={(e)=>{setBdate(e.target.value)}} />
                     </div>
                     <button onClick={crearNoticia} className="btn btn-dark">Guardar</button>
                 </div>
