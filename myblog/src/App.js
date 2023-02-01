@@ -15,7 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element= {<AllBlogs/>} exact />
           <Route path="/createblog" element= {<CreateBlog/>} exact />
-          <Route path="/updateblog/:id" element= {<UpdateBlog/>} exact /> 
+          <Route path="/updateblog/:id" element= {<UpdateBlog/>} exact/> 
         </Routes>
       </BrowserRouter>
     </div>
