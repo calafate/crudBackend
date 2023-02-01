@@ -1,15 +1,18 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+
 
 const baseURL ='http://localhost:8080';
-const UpdateBlog = () => {
-const {id} = useParams();
 
+const UpdateBlog = () => {
+    
+    const {id} = useParams();
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
     const [bdate, setBdate] = useState(Date());
-    
+    let navigate = useNavigate();
+
     useEffect(() => {
         const verNoticiaXid = async () => {
             await axios
@@ -37,6 +40,9 @@ const {id} = useParams();
         axios.put(`${baseURL}/api/blogs/${id}`, noticia)
             .then(res => {
                 console.log(res.data)
+                if(res.data?.status === "success"){
+                    navigate("/");
+                }
             })
             .catch((err) => console.log(err))
     }

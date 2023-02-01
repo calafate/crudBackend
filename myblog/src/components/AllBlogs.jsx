@@ -2,13 +2,13 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import {Link} from 'react-router-dom';
 import "../styles/allblogs.css";
-/* import UpdateBlog from "./UpdateBlog"; */
 
 const AllBlogs = () => {
   const [noticias, setNoticias] = useState([]);
   const [change, setChange] = useState(false);
 
-  const baseURL = "http://localhost:8080";
+  const baseURL = "http://localhost:8080"
+  
 
   const borrarNoticia = async (e, id) => {
     e.preventDefault();
