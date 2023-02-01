@@ -27,7 +27,7 @@ const CreateBlog = () => {
     }
 
     return (
-        <div className="container text-bg-secondary">
+        <div className="container text-bg-secondary p-5">
             <h2>Crear Noticia</h2>
             <div className="row mt-5">
                 <div className="col-sm-6 offset-3">
