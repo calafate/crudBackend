@@ -24,7 +24,9 @@ const CreateBlog = () => {
                 setBody("");
                 setBdate("");
             })
-            .catch((err) => console.log(err))
+            .catch((err) => {
+                console.log(err)
+            })
     }
     
 
@@ -35,7 +37,7 @@ const CreateBlog = () => {
                 <div className="col-sm-6 offset-3">
                     <div className="mb-3">
                         <label htmlFor="title" className="form-label">Titulo de la Noticia</label>
-                        <input type="text" className="form-control" value={title} 
+                        <input type="text" className="form-control" value={title}
                             onChange={(e)=>{setTitle(e.target.value)}}/>
                     </div>
                     <div className="mb-3">

@@ -13,9 +13,11 @@ const blogSchema = new Schema({
     image: {
         type: String,
     },
+    email: {
+        type: String,
+    },
     createdAt: {
         type: Date,
-        /* default: Date.now, */
         required: true
     },
 });

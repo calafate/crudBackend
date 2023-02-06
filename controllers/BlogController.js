@@ -1,5 +1,5 @@
-/* const blogService = require("../services/BlogService"); */
 const Blog = require("../models/Blog");
+const {validationResult} = require('express-validator')
  
 exports.getAllBlogs = async (req, res) => {
   try {
@@ -21,11 +21,16 @@ exports.getBlogById = async (req, res) => {
 
 exports.createBlog = async (req, res) => {
   try {
-    const blog = new Blog (req.body) 
-    await Blog.create(blog);
-    res.json({ data: blog, status: "success" });
+    const err = validationResult(req)
+      if (err.isEmpty()) {
+        const blog = new Blog (req.body)
+        await Blog.create(blog);
+        res.json({ data: blog, status: "success" });
+      } else {
+        res.status(501).json({ error: err });
+      }
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(501).json({ error: err.message });
   }
 };
   

@@ -1,8 +1,9 @@
 const express = require("express");
-const logger = require("morgan")
-const cors = require("cors")
+const logger = require("morgan");
+const cors = require("cors");
 const blogRouter = require("./routes/BlogRoutes");
-const indexRouter = require ("./routes/index")
+const indexRouter = require ("./routes/index");
+
 
 const app = express();
 
