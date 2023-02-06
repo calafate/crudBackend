@@ -14,7 +14,8 @@
 - [Cors] - Es una característica de seguridad del navegador que restringe las solicitudes HTTP de origen cruzado que se inician desde secuencias de comandos que se ejecutan en el navegador.
 - [Morgan] - Es una gran herramienta que registra las requests junto con otra información dependiendo de su configuración y el ajuste preestablecido utilizado. Resulta muy útil durante la depuración y también si desea crear archivos de registro.
 - [Dotenv] - Es un módulo que permite cargar las variables de entorno de un proyecto node desde un archivo.
-
+- [Express-Validator] - 
+- [nodemon] - 
 
 
 ## Datos para usar de ejemplo:

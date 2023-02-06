@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import {Link} from 'react-router-dom';
+import dayjs from 'dayjs';
 import "../styles/allblogs.css";
 
 const AllBlogs = () => {
@@ -38,7 +39,6 @@ const AllBlogs = () => {
     setChange(false);
   }, [change]);
 
-  // console.log(new Date().toLocaleDateString());
 
   return (
     <div className="container">
@@ -56,6 +56,7 @@ const AllBlogs = () => {
                 </div>
                 <hr />
                 <div className="noticia-date">
+                  <p>Publicado el: {dayjs(noticia.createdAt).format('DD-MM-YYYY')}</p>
                   <p>{noticia.createdAt}</p>
                 </div>
                 <hr />

@@ -6,25 +6,27 @@ const baseURL ='http://localhost:8080'
 const CreateBlog = () => {
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
-    const [bdate, setBdate] = useState(new Date());
-    
+    const [bdate, setBdate] = useState("");
 
     const crearNoticia = () => {
         const noticia = {
             title: title,
             body: body,
             image: "imagen",
-            createdAT: bdate
+            createdAt: Date(bdate)
         }
+        console.log(noticia)
+
         axios.post(`${baseURL}/api/blogs/`, noticia)
             .then(res => {
-                console.log(res.data)
+                console.log(res.data.data)
                 setTitle("");
                 setBody("");
-                setBdate(Date());
+                setBdate("");
             })
             .catch((err) => console.log(err))
     }
+    
 
     return (
         <div className="container text-bg-secondary p-5">
@@ -33,20 +35,22 @@ const CreateBlog = () => {
                 <div className="col-sm-6 offset-3">
                     <div className="mb-3">
                         <label htmlFor="title" className="form-label">Titulo de la Noticia</label>
-                        <input type="text" className="form-control" value={title} onChange={(e)=>{setTitle(e.target.value)}}/>
+                        <input type="text" className="form-control" value={title} 
+                            onChange={(e)=>{setTitle(e.target.value)}}/>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="body" className="form-label">Texto de la Noticia</label>
-                        <textarea className="form-control" rows="5" value={body} onChange={(e)=>{setBody(e.target.value)}} />
+                        <textarea className="form-control" rows="5" value={body} 
+                            onChange={(e)=>{setBody(e.target.value)}} />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="date" className="form-label">Fecha de la Noticia</label>
-                        <input type="date" className="form-control" value={"2023-01-03"} onChange={(e)=>{setBdate(e.target.value)}} />
+                        <input type="date" className="form-control" value={bdate} 
+                            onChange={(e)=>{setBdate(e.target.value)}} />
                     </div>
                     <button onClick={crearNoticia} className="btn btn-dark">Guardar</button>
                 </div>
             </div>
-
         </div>
     )
 }

@@ -10,7 +10,7 @@ const UpdateBlog = () => {
     const {id} = useParams();
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
-    const [bdate, setBdate] = useState(Date());
+    const [bdate, setBdate] = useState("");
     let navigate = useNavigate();
 
     useEffect(() => {
@@ -20,7 +20,7 @@ const UpdateBlog = () => {
             .then((res) => {
                 setTitle(res.data.data.title);
                 setBody(res.data.data.body);
-                setBdate(res.data.data.createdAT);
+                setBdate(res.data.data.createdAt);
             })
             .catch((err) => {
                 console.log(err);
@@ -35,7 +35,7 @@ const UpdateBlog = () => {
             title: title,
             body: body,
             image: "imagen",
-            createdAT: bdate
+            createdAt: bdate
         }
         axios.put(`${baseURL}/api/blogs/${id}`, noticia)
             .then(res => {
@@ -62,8 +62,7 @@ const UpdateBlog = () => {
                     </div>
                     <div className="mb-3">
                         <label htmlFor="date" className="form-label">Fecha de la Noticia</label>
-                        <h1>hola</h1> 
-                        <input type="date" className="form-control" value={bdate} onChange={(e)=>{setBdate(e.target.value)}} />
+                        <input type="date" className="form-control" onChange={(e)=>{setBdate(e.target.value)}} />
                     </div>
                     <button onClick={(e) => {actualizarNoticia(e)}} className="btn btn-secondary">
                         Actualizar
